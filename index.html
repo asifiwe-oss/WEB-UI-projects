@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartTech Solutions - Services</title>
+
+  <style>
+    /* CSS Variables for easy theme changes */
+    :root {
+      --primary-color: #1e90ff;
+      --secondary-color: #0a3d62;
+      --bg-color: #f9fafb;
+      --text-color: #333;
+      --card-bg: #fff;
+      --shadow-color: rgba(0,0,0,0.2);
+      --transition-speed: 0.5s;
+    }
+
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      transition: all var(--transition-speed) ease-in-out;
+    }
+
+    /* Header */
+    header {
+      position: relative;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(270deg, #0a3d62, #1e90ff, #0a3d62);
+      background-size: 600% 600%;
+      animation: gradientMove 15s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes gradientMove {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    header p {
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0.95;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {opacity:0; transform: translateY(20px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      padding: 20px 10px;
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: var(--secondary-color);
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: #fff;
+      background-color: var(--primary-color);
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      color: var(--secondary-color);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary-color);
+      margin: 15px auto 0 auto;
+      border-radius: 2px;
+    }
+
+    /* Service Cards */
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 25px var(--shadow-color);
+      perspective: 1000px;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, rgba(30,144,255,0.1), rgba(0,0,0,0));
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: rotateY(15deg) translateY(-10px);
+      box-shadow: 0 25px 35px var(--shadow-color);
+    }
+
+    .card h3 {
+      margin-bottom: 20px;
+      color: var(--primary-color);
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      transition: color 0.3s ease;
+    }
+
+    .card p {
+      font-size: clamp(0.95rem, 1.5vw, 1rem);
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px var(--shadow-color);
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      transition: background 0.3s;
+    }
+
+    th {
+      background-color: var(--primary-color);
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    td {
+      background: #fff;
+      font-size: 1rem;
+    }
+
+    tr:nth-child(even) td {
+      background: #f4f8fb;
+    }
+
+    tr:hover td {
+      background-color: #e1f0ff;
+    }
+
+    @media (max-width: 768px) {
+      .service-cards {
+        grid-template-columns: 1fr;
+      }
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    footer p {
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Our Services</h1>
+    <p>At SmartTech Solutions, we offer a wide range of services designed to help individuals and businesses leverage technology efficiently. Each service is tailored to meet client needs and provide the best value and results.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <section class="section">
+    <h2>Featured Services</h2>
+    <div class="service-cards">
+      <div class="card">
+        <h3>Website Development</h3>
+        <p>Custom websites designed for performance, responsiveness, and modern design. We ensure seamless user experience and robust back-end functionality.</p>
+      </div>
+      <div class="card">
+        <h3>ICT Support</h3>
+        <p>Comprehensive technical support for software, hardware, and network systems. We ensure your IT infrastructure runs efficiently and securely.</p>
+      </div>
+      <div class="card">
+        <h3>Digital Consulting</h3>
+        <p>Expert guidance on integrating digital strategies into your business. We optimize operations and help adopt emerging technologies effectively.</p>
+      </div>
+      <div class="card">
+        <h3>UI/UX Design</h3>
+        <p>Designing intuitive, engaging, and user-friendly interfaces for websites and mobile applications to improve customer satisfaction and usability.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Service Details and Pricing</h2>
+    <table>
+      <tr>
+        <th>Service</th>
+        <th>Description</th>
+        <th>Cost (USD)</th>
+        <th>Provider</th>
+        <th>Duration</th>
+      </tr>
+      <tr>
+        <td>Website Development</td>
+        <td>Fully responsive websites with modern UI/UX design and backend integration</td>
+        <td>500 - 2000</td>
+        <td>John Doe</td>
+        <td>2-6 weeks</td>
+      </tr>
+      <tr>
+        <td>ICT Support</td>
+        <td>Hardware and software troubleshooting, maintenance, and network management</td>
+        <td>50 - 500</td>
+        <td>Jane Smith</td>
+        <td>Ongoing / Monthly</td>
+      </tr>
+      <tr>
+        <td>Digital Consulting</td>
+        <td>Business IT strategy planning, digital transformation guidance, process optimization</td>
+        <td>200 - 1000</td>
+        <td>Mark Johnson</td>
+        <td>1-4 weeks</td>
+      </tr>
+      <tr>
+        <td>UI/UX Design</td>
+        <td>Interface design for web and mobile applications focusing on usability and aesthetics</td>
+        <td>300 - 1500</td>
+        <td>Emily Davis</td>
+        <td>2-5 weeks</td>
+      </tr>
+    </table>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 SmartTech Solutions. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
