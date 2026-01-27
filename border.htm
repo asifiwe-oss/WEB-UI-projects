@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0px;
+        }
+        .container{
+            font-size: 2em;/*32*/
+            background-color: dodgerblue;
+            width: 40%;
+            height: 450px;
+            /* border-color: orange;
+            border-width: 5px;
+            border-style: solid; */
+
+           /* border: 5px solid orange ;
+            border-style: dashed;
+            border-top: 30px groove greenyellow;
+            border-right-style: solid;
+            border-right-width: 10px;
+            border-left: 10px double purple;
+            border-radius: 50px; */
+
+            /*Order
+              top,right,left,bottom*/
+
+            border-style: dashed dotted solid double;
+            border-color: green yellowgreen red;
+            border-width: 20px;
+            border-radius: 20px;
+            
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+           
+            padding: 20px 10px 30px 30px;            
+        }
+
+        .subcontainer{
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis corporis, eius consequuntur fuga, facilis earum cumque, sequi nostrum nesciunt impedit vel. Harum odio aliquam, quasi voluptate consequuntur corporis distinctio dolorem.
+        Ab
+
+        <div class="subcontainer">
+
+        </div>
+    </div>
+    <p>Window height: <span id="height"></span></p>
+<p>Window width: <span id="width"></span></p>
+<script>
+    const heightOutput = document.querySelector("#height");
+const widthOutput = document.querySelector("#width");
+
+function updateSize() {
+  heightOutput.textContent = window.innerHeight;
+  widthOutput.textContent = window.innerWidth;
+}
+
+updateSize();
+window.addEventListener("resize", updateSize);
+</script
+</body>
+</html>
